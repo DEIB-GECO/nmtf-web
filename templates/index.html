@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>NMTF-web</title>
+<link rel="stylesheet" href="static/css/index.css">
+<script src="static/js/index.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+  // Recaptcha script on submit
+  function onSubmit(token) {
+    document.getElementById("mainInput").submit();
+  }
+</script>
+{% endblock %}
+
+{% block body %}
+<h1>Drug repositioning app</h1>
+<div id="preLoader">
+  <center>
+    <form id="mainInput" action="/loader" enctype="multipart/form-data" method="post">
+      <div class="divInput" id="settingFileChoose">
+        <p>Do you want to load the setting file or configure it?</p><br>
+        <input type="radio" id="how_sfile_1" name="how_sfile" value="1" checked="checked" onclick="swapDivSFile()">
+        <label for="how_sfile_1">Load</label><br>
+        <input type="radio" id="how_sfile_0" name="how_sfile" value="0" onclick="swapDivSFile()">
+        <label for="how_sfile_0">Configure</label>
+      </div>
+      <div id="filesForm">
+        <div class="divInput" id="associationFiles">
+          <span>Associations files:</span> <br>
+          <button id="addFile" onclick="return addFileInput();">Add Association File</button>
+        </div>
+        <div class="divInput" id="sfileLoaded">
+          <span>Setting file:</span> <br>
+          <input type="file" name="sfile" accept=".yaml">
+        </div>
+        <div class="divInput" id="sfileConfig" hidden>
+          <span>Configure setting file:</span> <br><br>
+
+          <label for="integrationStrategy" title="Choose an integration strategy">Integration Strategy:</label>
+          <select name="integration.strategy" id="integrationStrategy">
+            <option value="intersection">intersection</option>
+            <option value="union">union</option>
+          </select>
+          <br><br>
+
+          <label for="initialization" title="Choose an initialization method for the matrix">Initialization:</label>
+          <select name="initialization" id="initialization" onchange="return showRankOptions()">
+            <option value="random">random</option>
+            <option value="svd">svd</option>
+            <option value="kmeans">kmeans</option>
+          </select>
+          <br><br>
+
+          <label for="metric" title="Choose with which metric the results will be evaluated">Metric:</label>
+          <select name="metric" id="metric">
+            <option value="APS">APS</option>
+            <option value="AUROC">AUROC</option>
+            <option value="PEARSON">PEARSON</option>
+            <option value="RMSE">RMSE</option>
+            <option value="LOG_RMSE">LOG_RMSE</option>
+          </select>
+          <br><br>
+
+          <label for="numberOfIterations" title="Choose the max number of iterations
+          before stop the algorithm">Number of Iterations:</label>
+          <input id="numberOfIterations" name="number.of.iterations" max="500" min="10" type="number" value="100" step="10">
+          <br><br>
+
+          <label for="typeOfMasking" title="Choose a type of masking" >Type of Masking:</label>
+          <select name="type.of.masking" id="typeOfMasking">
+            <option value="fully_random">fully random</option>
+            <option value="per_row_random">per row random</option>
+          </select>
+          <br><br>
+
+          <label for="stopCriterion" title="Choose the stop criteria of the algorithm">Stop Criterion:</label>
+          <select name="stop.criterion" id="stopCriterion">
+            <option value="RELATIVE_ERROR">relative error</option>
+            <option value="MAXIMUM_ITERATIONS">maximum iterations</option>
+            <option value="MAXIMUM_METRIC">maximum metric</option>
+          </select>
+          <br><br>
+
+          <label for="scoreThreshold" title="Threshold above witch show significant new links founded">Score Threshold:</label>
+          <input id="scoreThreshold" name="score.threshold" max="1" min="0" type="number" value="0.5" step="0.1">
+          <br><br>
+
+          <label for="svdRank" title="Max number of most relevant eigenvalues to take in account" hidden>SVD Rank:</label>
+          <input id="svdRank" name="k_svd" min="1" type="number" value="20" step="1" hidden>
+
+          <div id="ranks" onchange="return updateFilesDatasets()">
+            <label title="Ranks of the different dataset of nodes">Dataset Ranks:</label>
+            <br><br>
+            <button id="addDataset" onclick="return addNodesDataset();">Add Nodes Dataset</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+      <input data-sitekey="{{ site_key }}"
+             data-callback='onSubmit'
+             data-action='submit'
+             class="submit g-recaptcha" type="submit" value="Submit">
+    </form>
+  </center>
+</div>
+{% endblock %}

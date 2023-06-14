@@ -1,0 +1,57 @@
+# graph_topology.yaml
+
+Websocket connection opened!
+nmtf app lunched
+metric : APS
+number of iterations : 50
+stop criterion : RELATIVE_ERROR
+threshold : 0.5
+Time without networkx: 0.20603537559509277
+Time without networkx: 0.21303439140319824
+Time without networkx: 0.2120342254638672
+Time without networkx: 0.21503710746765137
+Time without networkx: 0.2239987850189209
+Time without networkx: 0.03600573539733887
+Time without networkx: 0.03799939155578613
+Time without networkx: 0.03200674057006836
+Time without networkx: 0.05100822448730469
+Time without networkx: 0.05700182914733887
+Time without networkx: 0.022001981735229492
+Time without networkx: 0.01799917221069336
+Time without networkx: 0.025000810623168945
+Time without networkx: 0.016988754272460938
+Time without networkx: 0.02399754524230957
+Time without networkx: 0.35399532318115234
+Time without networkx: 0.377000093460083
+Time without networkx: 0.3749969005584717
+Time without networkx: 0.37000346183776855
+Time without networkx: 0.38300609588623047
+
+----------------------------------------------
+
+Websocket connection opened!
+nmtf app lunched
+metric : APS
+number of iterations : 50
+stop criterion : RELATIVE_ERROR
+threshold : 0.5
+Time with networkx: 2.5089502334594727
+Time with networkx: 2.526914119720459
+Time with networkx: 2.6149158477783203
+Time with networkx: 2.6199159622192383
+Time with networkx: 2.640918254852295
+Time with networkx: 1.8180029392242432
+Time with networkx: 1.8430030345916748
+Time with networkx: 1.8169987201690674
+Time with networkx: 1.8469982147216797
+Time with networkx: 1.8599998950958252
+Time with networkx: 0.20799851417541504
+Time with networkx: 0.21199989318847656
+Time with networkx: 0.23799920082092285
+Time with networkx: 0.24300289154052734
+Time with networkx: 0.24900197982788086
+Time with networkx: 5.078792572021484
+Time with networkx: 6.004221677780151
+Time with networkx: 6.283271551132202
+Time with networkx: 6.441235065460205
+Time with networkx: 6.719790697097778

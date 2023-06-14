@@ -1,0 +1,68 @@
+Installation
+**************
+
+Dowload repo
+=============
+You can downoal it from: https://github.com/DEIB-GECO/NMTF-link .
+
+Or you can download it using git command:
+
+.. code-block:: console
+	
+	git clone https://github.com/DEIB-GECO/NMTF-link
+	
+Or wget:
+
+.. code-block:: console
+
+	wget --no-check-certificate --content-disposition https://github.com/DEIB-GECO/NMTF-link
+
+Or curl:
+
+.. code-block:: console
+
+	curl -LJO https://github.com/DEIB-GECO/NMTF-link
+
+Install requirements
+=====================
+
+On your computer
+-----------------
+You can install web_app_nmtf directly on you device:
+
+1. Be sure to have python 3.7 installed or you can create and eviorment with conda:
+
+.. code-block:: console
+
+	pip install conda
+	conda create -n my_env python=3.7
+	conda activate my_env
+
+2. Install requirements:
+
+.. code-block:: console
+
+	pip install -r requirements.txt
+
+In a docker container
+----------------------
+Or youc can use a docker container:
+
+.. code-block:: console
+
+	docker load < web_app_nmtf.tar
+
+Run app
+==========
+If you installed requirements with pip use:
+
+.. code-block:: console
+
+	python app.py
+
+If you loaded the docker map the port 5000 and run a container using:
+
+.. code-block:: console
+
+	docker run -p 5000:5000 web_app_nmtf
+	

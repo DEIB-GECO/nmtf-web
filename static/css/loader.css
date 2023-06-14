@@ -1,0 +1,90 @@
+
+#preLoader{
+  width: fit-content;
+}
+
+#divGif{
+  transform: scale(0.5);
+}
+
+.loaderStyle{
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.loader {
+  border: 32px solid white;
+  border-top: 32px solid #2186f4;
+  border-radius: 50%;
+  width: 33vw;
+  height: 33vw;
+  max-width: 200px;
+  max-height: 200px;
+  animation: spin 4s linear infinite;
+
+  margin: 0;
+}
+
+.miniloader {
+  border: 4px solid white;
+  border-top: 4px solid #2186f4;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  animation: spin 4s linear infinite;
+
+  display: inline-block;
+  margin: 0;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.textPLoader{
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.alertDivLoader{
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+}
+
+.alertPLoader{
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+  font-size: 25px;
+}
+
+.iFrameGif{
+  width: fit-content;
+  margin: auto;
+}
+
+.console{
+  background: #000;
+  border: 3px groove #ccc;
+  color: #ccc;
+  padding: 5px;
+  width: 60%;
+  min-width: 300px;
+  min-height: 200px;
+  height: 50vh;
+  overflow-y: scroll;
+  margin: auto;
+  font-family: monospace;
+  font-size: large;
+  line-height: 1.3em;
+}

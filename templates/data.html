@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="static/css/data.css" >
+{% endblock %}
+
+{% block body %}
+    <button onclick="window.location.href = '/';">Submit other files</button>
+    <div class="center">
+        <pre id="results" class="center-item"></pre>
+    </div>
+    <p class="center-p">Click <a target="_blank" href="showtxt?name={{unique | safe }}&as_attachment=yes">here</a>
+        to download your results file</p>
+    <div id="images">
+        {% for i in imagelist %}
+            <img src = "{{ url_for('showimg', name=unique, img=i, as_attachment='no') | safe}}">
+            <p>Click <a target="_blank" href="{{ url_for('showimg', name=unique, img=i, as_attachment='yes') | safe}}">
+                here</a> to download this image</p>
+        {% endfor %}
+    </div>
+    <script type="application/javascript">
+        const file = document.getElementById("results");
+        fetch("showtxt?name={{unique | safe }}&as_attachment=no")
+            .then((response) => response.text())
+            .then((txt) => file.innerText = txt);
+    </script>
+{% endblock %}

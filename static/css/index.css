@@ -1,0 +1,153 @@
+body{
+    animation-duration: 3s;
+}
+
+@keyframes opacity0-1 {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#mainInput{
+    border-radius: 20px;
+    border: solid #009b00 0.23rem;
+    padding: 30px;
+    width: fit-content;
+}
+
+.inputTxt{
+    border: solid #009b00 0.13rem;
+    height: 30px;
+    background-color: #161A1D;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+    width: 80%;
+    padding: 3px;
+    color: white;
+    margin: 0 0 0 0;
+}
+
+#filesForm{
+    width: 100%;
+    padding: 0 0 0 0;
+}
+
+#filesForm > .divInput{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 20px;
+    border: solid #009b00 0.13rem;
+    width: fit-content;
+}
+
+#filesForm > .divInput > span{
+    font-size: 1rem;
+}
+
+#filesForm > .divInput > input{
+    margin-top: 10px;
+    font-size: 0.7rem;
+}
+
+#addFile{
+    border: solid #009b00 0.13rem;
+    height: 30px;
+    background-color: #161A1D;
+    font-size: 1rem;
+    text-align: center;
+    padding: 3px 10px;
+    width: fit-content;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+#addFile:hover{
+    background-color: #009b00;
+    color: #161A1D;
+}
+
+.submit{
+    border: solid #009b00 0.13rem;
+    height: 30px;
+    background-color: #161A1D;
+    font-size: 1rem;
+    text-align: center;
+    width: 80%;
+    padding: 3px;
+    color: white;
+    margin: 0 0 0 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s,  color 0.8s;
+}
+
+.submit:hover{
+    background-color: #009b00;
+    color: #161A1D;
+}
+
+.delFile{
+    width: 13px;
+    cursor: pointer;
+}
+
+#settingFileChoose{
+    text-align: -webkit-left;
+}
+
+#settingFileChoose > p{
+    text-align: left;
+    margin: 0 0 0 0;
+}
+
+#sfileConfig{
+    text-align: -webkit-left;
+}
+
+#sfileConfig > input{
+    margin-top: 0 !important;
+}
+
+#sfileConfig > label{
+    cursor: help;
+}
+
+.associationFile{
+    padding: 10px;
+}
+
+.associationFile > input{
+    max-width: 90%;
+}
+
+.associationFile > .nodes{
+    width: 70px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.associationFile > img{
+    margin-left: 20px;
+}
+
+.nodeDataset > input{
+    max-width: 120px;
+}
+
+.nodeDataset > label{
+    margin-right: 5px;
+    margin-left: 20px;
+}
+
+.nodeDataset > img{
+    margin-left: 10px;
+}
+
+#svdRank{
+    margin-bottom: 13px;
+}
+
+
+

@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>scripts package &#8212; Web App NMTF_link 1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils package" href="utils.html" />
+    <link rel="prev" title="files_management module" href="files_management.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="scripts-package">
+<h1>scripts package<a class="headerlink" href="#scripts-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-scripts.AssociationMatrix">
+<span id="scripts-associationmatrix-module"></span><h2>scripts.AssociationMatrix module<a class="headerlink" href="#module-scripts.AssociationMatrix" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.AssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">AssociationMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leftds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_sorted_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_sorted_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_of_masking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#scripts.AssociationMatrix.AssociationMatrix.mask_matrix" title="scripts.AssociationMatrix.AssociationMatrix.mask_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_matrix</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#scripts.AssociationMatrix.AssociationMatrix.validate" title="scripts.AssociationMatrix.AssociationMatrix.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>([metric])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>get_error</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>initialize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>update</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>update_G_left</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>update_G_right</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>update_S</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.get_error">
+<span class="sig-name descname"><span class="pre">get_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.get_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initialize_strategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.mask_matrix">
+<span class="sig-name descname"><span class="pre">mask_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.mask_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.update_G_left">
+<span class="sig-name descname"><span class="pre">update_G_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.update_G_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.update_G_right">
+<span class="sig-name descname"><span class="pre">update_G_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.update_G_right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.update_S">
+<span class="sig-name descname"><span class="pre">update_S</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.update_S" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.AssociationMatrix.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">EvaluationMetric.APS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.AssociationMatrix.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.list_to_dict">
+<span class="sig-prename descclassname"><span class="pre">scripts.AssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">list_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.list_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.parse_line">
+<span class="sig-prename descclassname"><span class="pre">scripts.AssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">parse_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.parse_line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.AssociationMatrix.suppress_stdout">
+<span class="sig-prename descclassname"><span class="pre">scripts.AssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">suppress_stdout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.AssociationMatrix.suppress_stdout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-scripts.Network">
+<span id="scripts-network-module"></span><h2>scripts.Network module<a class="headerlink" href="#module-scripts.Network" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.Network.Network">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.Network.</span></span><span class="sig-name descname"><span class="pre">Network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_topology_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirfilename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Network class is the representation of all the graph
+And it contains a instance of AssociationMatrix for each
+file (every AssociationMatrix contains the decomposition)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>graph_topology_file</strong><span class="classifier">str</span></dt><dd><p>File name describing the topology of the network (setting file).</p>
+</dd>
+<dt><strong>init_strategy</strong><span class="classifier">str</span></dt><dd><p>Strategy of initialization of the AssociationMatrix in the network. Strategy can be: random, svd, kmeans.</p>
+</dd>
+<dt><strong>integration_strategy</strong><span class="classifier">str</span></dt><dd><p>Integration strategy of nodes. Strategy can be: union, intersection.</p>
+</dd>
+<dt><strong>rng</strong><span class="classifier">Generator</span></dt><dd><p>Random generator</p>
+</dd>
+<dt><strong>type_of_masking</strong><span class="classifier">int</span></dt><dd><p>How mask is generated. 0 means fully_random, 1 means random_per_row.</p>
+</dd>
+<dt><strong>association_matrices</strong><span class="classifier">List[AssociationMatrix]</span></dt><dd><p>Association matrix of the Network</p>
+</dd>
+<dt><strong>datasets</strong><span class="classifier">Set[str]</span></dt><dd><p>Set with names of all data sets</p>
+</dd>
+<dt><strong>dataset_ks</strong><span class="classifier">Dict[str, int]</span></dt><dd><p>Dictionary that associate data set name with its rank</p>
+</dd>
+<dt><strong>files</strong><span class="classifier">Dict[str, list]</span></dt><dd><p>Dictionary that associate to every filename the list [main, ds_left, ds_right]. Main is 1 if is the main matrix,
+0 otherwise. ds_left is the dataset on the left of the relationship and ds_right is the dataset on the right.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#scripts.Network.Network.get_error" title="scripts.Network.Network.get_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_error</span></code></a>()</p></td>
+<td><p>Method to get the current error of the network</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#scripts.Network.Network.get_main" title="scripts.Network.Network.get_main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main</span></code></a>()</p></td>
+<td><p>Get the main matrix of the network</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#scripts.Network.Network.select_rank" title="scripts.Network.Network.select_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_rank</span></code></a>(ds_name)</p></td>
+<td><p>Method to calculate rank for each datatype.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#scripts.Network.Network.update" title="scripts.Network.Network.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>()</p></td>
+<td><p>Update the network</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#scripts.Network.Network.validate" title="scripts.Network.Network.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>([metric])</p></td>
+<td><p>Validate the network, producing performance metrics (APS, AUROC, RMSE)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.Network.Network.get_error">
+<span class="sig-name descname"><span class="pre">get_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network.get_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to get the current error of the network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>float</dt><dd><p>current error of the network</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.Network.Network.get_main">
+<span class="sig-name descname"><span class="pre">get_main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network.get_main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the main matrix of the network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>AssociationMatrix</dt><dd><p>main matrix</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.Network.Network.select_rank">
+<span class="sig-name descname"><span class="pre">select_rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network.select_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to calculate rank for each datatype. In case of k-means and spherical k-means initialization represents
+number of clusters. In case of svd rank represents the “compression” magnitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ds_name</strong><span class="classifier">str</span></dt><dd><p>name of the data set</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>int</strong></dt><dd><p>rank</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.Network.Network.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the network</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.Network.Network.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">EvaluationMetric.APS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.Network.Network.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the network, producing performance metrics (APS, AUROC, RMSE)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric</strong><span class="classifier">EvaluationMetric, default=EvaluationMetric.APS</span></dt><dd><p>Metric to produce</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>Method to produce performance metrics</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-scripts.processAssociationMatrix">
+<span id="scripts-processassociationmatrix-module"></span><h2>scripts.processAssociationMatrix module<a class="headerlink" href="#module-scripts.processAssociationMatrix" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.processAssociationMatrix.add_to_den">
+<span class="sig-prename descclassname"><span class="pre">scripts.processAssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">add_to_den</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">am</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.processAssociationMatrix.add_to_den" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.processAssociationMatrix.add_to_num">
+<span class="sig-prename descclassname"><span class="pre">scripts.processAssociationMatrix.</span></span><span class="sig-name descname"><span class="pre">add_to_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">am</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.processAssociationMatrix.add_to_num" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-scripts.processNetwork">
+<span id="scripts-processnetwork-module"></span><h2>scripts.processNetwork module<a class="headerlink" href="#module-scripts.processNetwork" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.processNetwork.runNetworkMM">
+<span class="sig-prename descclassname"><span class="pre">scripts.processNetwork.</span></span><span class="sig-name descname"><span class="pre">runNetworkMM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metricsArr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.processNetwork.runNetworkMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.processNetwork.runNetworkRE">
+<span class="sig-prename descclassname"><span class="pre">scripts.processNetwork.</span></span><span class="sig-name descname"><span class="pre">runNetworkRE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metricsArr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.processNetwork.runNetworkRE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-scripts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-scripts" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Web App NMTF_link</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">flaskProject</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="NMTF_link.html">NMTF_link module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_management.html">files_management module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">scripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="websocket_protocol.html">Websocket protocol</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">flaskProject</a><ul>
+      <li>Previous: <a href="files_management.html" title="previous chapter">files_management module</a></li>
+      <li>Next: <a href="utils.html" title="next chapter">utils package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Giuseppe Bocci.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/scripts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

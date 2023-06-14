@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    background-color: #161A1D;
+    color: white;
+    font-family: monospace;
+}
+
+.fit{
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+}
+
+footer{
+    min-height: 20vh;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.center-item{
+    align-self: center;
+}
+
+h1{
+    color: #009b00;
+    margin: 2rem 0 2rem 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}

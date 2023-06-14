@@ -1,0 +1,13 @@
+Websocket protocol
+*******************
+
+Websocket protocol used is very simple:
+
+1. The client open the connection
+2. The client send his unique id
+3. The server starts pushing program output in lines
+
+This is a simple diagram with possible codes:
+
+.. include::  websocket_sequence_diagram.txt
+	:literal:

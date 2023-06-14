@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>loader</title>
+<link rel="stylesheet" href="static/css/loader.css" >
+<script src="static/js/loader.js"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Drug repositioning app</h1>
+    <div id="loaderBox">
+        <div id="divGif" class="fit">
+
+        </div>
+
+        <div id="console" class="console">
+
+        </div>
+
+        <div id="divText">
+            <p class='textPLoader'>
+                We are processing your files &nbsp <span class='miniloader'></span> <br>
+                You will be redirected to your results as soon as it is possible"
+            </p>
+            <div class='alertDivLoader'>
+                <p class='alertPLoader'>
+                    &#9888; This could take <b>several minutes!</b> <br>
+                    &#9888; Please <b>DO NOT</b> close or refresh this page until it's done! <br>
+                    &#9888; You can still use other windows or applications!
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    <script>
+        new Promise(resolve => setTimeout(resolve, 1000)).then(() => {
+            openWebSocketCommunication("{{unique}}");
+        });
+    </script>
+{% endblock %}

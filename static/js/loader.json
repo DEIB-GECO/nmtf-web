@@ -1,0 +1,69 @@
+{
+  "len" : 8,
+  "gifs" : [
+    {
+    "src":"https://giphy.com/embed/1fo53TVAlP81MYBSUg",
+    "width": 268,
+    "height": 480,
+    "frameBorder": "0",
+    "class": "giphy-embed",
+    "href": "https://giphy.com/gifs/1fo53TVAlP81MYBSUg"
+    },
+    {
+      "src":"https://giphy.com/embed/pEhpnpkPlyP3q",
+      "width": 455,
+      "height": 480,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/hamster-pEhpnpkPlyP3q"
+    },
+    {
+      "src":"https://giphy.com/embed/82fQ0lbisj7rO",
+      "width": 480,
+      "height": 366,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/acid-october-gifdump-82fQ0lbisj7rO"
+    },
+    {
+      "src":"https://giphy.com/embed/26vUBJ3rUIxT1vKfK",
+      "width": 480,
+      "height": 270,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/nickelodeon-animation-nicktoons-the-loud-house-26vUBJ3rUIxT1vKfK"
+    },
+    {
+      "src":"https://giphy.com/embed/z9c1ZCvaH5WBq",
+      "width": 480,
+      "height": 270,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/cat-loop-wheel-z9c1ZCvaH5WBq"
+    },
+    {
+      "src":"https://giphy.com/embed/6FoN80VbmwM00",
+      "width": 480,
+      "height": 268,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/funny-fun-hamsters-6FoN80VbmwM00"
+    },
+    {
+      "src":"https://giphy.com/embed/xTkcEQACH24SMPxIQg",
+      "width": 480,
+      "height": 480,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/hand-bored-waiting-xTkcEQACH24SMPxIQg"
+    },
+    {
+      "src":"https://giphy.com/embed/3y0oCOkdKKRi0",
+      "width": 480,
+      "height": 350,
+      "frameBorder": "0",
+      "class": "giphy-embed",
+      "href": "https://giphy.com/gifs/3y0oCOkdKKRi0"
+    }
+  ]
+}

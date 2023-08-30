@@ -1,4 +1,4 @@
-let loadSetFile = true;
+let mode = 0;
 
 function createOptions(nodes){
     const nodeDatasets = document.getElementsByClassName("nodeDataset");
@@ -43,9 +43,9 @@ function addFileInput(){
     const mainInput = document.createElement("input");
     mainInput.type = "radio";
     mainInput.name = "main";
-    mainInput.value = document.getElementsByTagName("associationFile").length.toString();
+    mainInput.value = document.getElementsByClassName("associationFile").length.toString();
 
-    if(loadSetFile){
+    if(mode === 0){
       nodes2.hidden = true;
       nodes1.hidden = true;
       label2.hidden = true;
@@ -92,17 +92,24 @@ function delFileInput(){
     return false;
 }
 
-function swapDivSFile(){
-    loadSetFile = !loadSetFile;
+function swapDivSFile(mod){
+    mode = mod;
     const divL = document.getElementById("sfileLoaded");
     const divC = document.getElementById("sfileConfig");
-    divL.hidden = !divL.hidden;
-    divC.hidden = !divC.hidden;
+    if(mod === 0){
+        divL.hidden = false;
+        divC.hidden = true;
+    }
+    else{
+        divL.hidden = true;
+        divC.hidden = false;
+    }
+
 
     let associationFiles = document.getElementsByClassName("associationFile");
     for(let i = 0; i < associationFiles.length; i++){
         for(let j = 1; j < associationFiles[i].children.length - 1; j++){
-            associationFiles[i].children[j].hidden = loadSetFile;
+            associationFiles[i].children[j].hidden = (mode === 0);
         }
     }
 }
@@ -114,6 +121,9 @@ function showRankOptions(){
     let ks = document.getElementsByClassName("ks");
     let labelsK = document.getElementsByClassName("labelK");
 
+
+    /*
+        Uncomment for fast SVD
     if(select.value === "svd"){
         svdRankInput.hidden = false;
         labelSvd.hidden = false;
@@ -125,11 +135,11 @@ function showRankOptions(){
     else{
         svdRankInput.hidden = true;
         labelSvd.hidden = true;
-        for(let i = 0; i < ks.length; i++){
+        /*for(let i = 0; i < ks.length; i++){
             ks[i].hidden = false;
             labelsK[i].hidden = false;
         }
-    }
+    }*/
 
     return false;
 }
@@ -157,10 +167,12 @@ function addNodesDataset(){
     inputK.name = "ks";
     inputK.value = "20";
     const select = document.getElementById("initialization");
+    /*
+    Uncomment for fast SVD
     if(select.value === "svd"){
         inputK.hidden = true;
         label.hidden = true;
-    }
+    }*/
     const img = document.createElement("img");
     img.src = "static/img/x.png";
     img.className = "delFile";

@@ -20,9 +20,9 @@
     <form id="mainInput" action="/loader" enctype="multipart/form-data" method="post">
       <div class="divInput" id="settingFileChoose">
         <p>Do you want to load the setting file or configure it?</p><br>
-        <input type="radio" id="how_sfile_1" name="how_sfile" value="1" checked="checked" onclick="swapDivSFile()">
+        <input type="radio" id="how_sfile_1" name="how_sfile" value="1" checked="checked" onclick="swapDivSFile(0)">
         <label for="how_sfile_1">Load</label><br>
-        <input type="radio" id="how_sfile_0" name="how_sfile" value="0" onclick="swapDivSFile()">
+        <input type="radio" id="how_sfile_0" name="how_sfile" value="0" onclick="swapDivSFile(1)">
         <label for="how_sfile_0">Configure</label>
       </div>
       <div id="filesForm">
@@ -87,7 +87,7 @@
           <br><br>
 
           <label for="svdRank" title="Max number of most relevant eigenvalues to take in account" hidden>SVD Rank:</label>
-          <input id="svdRank" name="k_svd" min="1" type="number" value="20" step="1" hidden>
+          <input id="svdRank" name="k_svd" min="1" type="number" value="10" step="1" hidden>
 
           <div id="ranks" onchange="return updateFilesDatasets()">
             <label title="Ranks of the different dataset of nodes">Dataset Ranks:</label>

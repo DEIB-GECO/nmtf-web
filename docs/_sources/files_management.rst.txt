@@ -1,7 +1,0 @@
-files\_management module
-========================
-
-.. automodule:: files_management
-   :members:
-   :undoc-members:
-   :show-inheritance:

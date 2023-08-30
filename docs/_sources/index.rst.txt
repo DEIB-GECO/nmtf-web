@@ -1,0 +1,27 @@
+.. Web App NMTF_link documentation master file, created by
+   sphinx-quickstart on Fri Jun  2 00:29:45 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Web App NMTF_link's documentation!
+=============================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   
+   install.rst
+   
+   how_to.rst
+   
+   modules
+   
+   websocket_protocol.rst
+   
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

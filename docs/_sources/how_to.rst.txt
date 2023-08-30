@@ -1,0 +1,37 @@
+Parameters to be specified by the user in the setting file
+***********************************************************
+
+
+To prerform an evaluation the graph_topology.yaml file is needed. It is the setup file and the user needs to specify the following parameters:
+
+* **integration.strategy** : mode of integration of datasets. When a dataset is present in several association matrices (e.g., the movies are present in three of the four association matrices of the multipartite network in the use case, there are two ways to integrate its elements: either using only its objects that are shared by all association matrices (intersection option), or using all its objects, which are present in at least one association matrix (union option). *Options: "intersection" or "union"*.
+
+* **initialization** : method to initialize the factor matrices, which are the three matrices that factorize each association matrix. *Options: "random", "kmeans" or "svd"*.
+
+* **metric** : performance evaluation metric. *Options: "APS" (Average Precision Score) or "AUROC" (Area Under the ROC curve)*.
+
+* **number.of.iterations** : number of maximum iterations for each run of the algorithm. *Options: any positive integer value*
+
+* **type.of.masking** : to evaluate the NMTF predictions, there is the need of choosing the masking strategy to be applied on the selected association matrix. It can either have a completely randomized distribution of masking elements, or have the same number of masking elements per row, randomly distributed within each row. *Options: "fully_random" or "per_row_random"*.
+
+* **stop.criterion** : stop criterion strategies for link prediction using the NMTF method. The options are:
+	* "maximum_metric" option runs the algorithm 5 times with masking, chooses the iteration with best average evaluation metric, runs one more time (without masking and evaluation) until the chosen iteration and outputs the results; it also outputs evaluation plots to the main directory.
+	* "relative_error" option runs the algorithm 5 times with masking, chooses the first iteration of each run with relative error < 0.001, runs one more time (without masking and evaluation) until the chosen iteration and outputs the results; it also outputs evaluation plots to the main directory.
+	* "maximum_iterations" option runs the chosen number of iterations without masking and outputs the result for the last iteration.
+
+* **score.threshold** : minimum NMTF score value for the novel links predicted. *Options: any value between 0 and 1*.
+
+* **graph.datasets** : specifies datasets files. It has the following parameters for each file/AssociationMatrix:
+	* nodes.left: name of the dataset on the left 
+	* nodes.right: name of the dataset on the right 
+        * filename: name of the file containg the bipartite graph
+      	* main: set to *1* if it is the graph being investigated, *0* otherwise
+      	
+* **ranks** : specifies the rank of a dataset. The parameters are:
+	* dsname: dataset name
+	* k: positive integer value representing the rank
+* **k_svd** : rank of all the datasets when the initialization choosed is *svd*. Use this parameter insead of *ranks* for *Compact SVD* (Recommended option). All the datasets will have the same rank of compression. *Options: any positive integer value*.
+
+
+
+For a better understanding the case_study should be seen.

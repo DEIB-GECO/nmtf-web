@@ -13,6 +13,7 @@ from contextlib import contextmanager
 import sys
 from scipy import linalg as la
 from sklearn.cluster import KMeans
+from time import time
 
 
 class Network:
@@ -106,9 +107,14 @@ class Network:
                 for data in graph_topology["ranks"]:
                     dsname = data["dsname"]
                     k = data["k"]
-                    self.dataset_ks[dsname.upper()] = int(k)
+                    try:
+                        self.dataset_ks[dsname.upper()] = int(k)
+                    except:
+                        pass
             if "k_svd" in graph_topology:
-                self.k_svd = graph_topology["k_svd"]
+                self.k_svd = graph_topology["k_svd"] #TODO:svd
+            else:
+                self.k_svd = 10  # Default value
 
             # For each category of nodes, compute the intersection or union between the different matrices
             for element in graph_topology["graph.datasets"]:
@@ -172,13 +178,12 @@ class Network:
 
         # This part is setting the ranks for the different AssociationMatrix
         # ( remember am = G_left^{M,k1} @ S^{k1,k2} @ G_right^{k2,N} )
-        # NOT CLEAR how k is used
-        for k in self.datasets.keys():
-            rank = self.select_rank(k)
+        for ds in self.datasets.keys():
+            rank = self.select_rank(ds)
             for am in self.association_matrices:
-                if am.leftds == k:
+                if am.leftds == ds:
                     am.k1 = int(rank)
-                elif am.rightds == k:
+                elif am.rightds == ds:
                     am.k2 = int(rank)
 
         # self.association_matrices = list(self.pool.starmap(initialize, [(am, self.init_strategy, False) for am in self.association_matrices]))
@@ -192,14 +197,16 @@ class Network:
             processes[i].join()
             self.association_matrices[i] = results[i]"""
 
+        start_initialization_time = time()
         for am in self.association_matrices:
             am.initialize(self.init_strategy, verbose)
-
+        end_initialization_time = time()
+        print("Total Network Initialization time:", end_initialization_time-start_initialization_time)
         """for am in self.association_matrices:
             am.create_update_rules()"""
 
     # Method to calculate rank for each datatype. In case of k-means and spherical k-means initialization represents
-    # number of clusters. TODO: Besides in case of svd rank represents the "compression" magnitude
+    # number of clusters. Besides in case of svd rank represents the "compression" magnitude
     def select_rank(self, ds_name):
         """
         Method to calculate rank for each datatype. In case of k-means and spherical k-means initialization represents
@@ -214,7 +221,7 @@ class Network:
         int
             rank
         """
-        # TODO: rank set by the user
+
         if ds_name in self.dataset_ks:
             rank = self.dataset_ks[ds_name]
         else:
@@ -253,7 +260,6 @@ class Network:
         float :
             current error of the network
         """
-        # print(sum([am.get_error() for am in self.association_matrices]))
         return sum([am.get_error() for am in self.association_matrices])
 
     def update(self):

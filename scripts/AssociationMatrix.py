@@ -3,7 +3,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 import sys
-# import numpy as np
+import numpy as np
 from sklearn.cluster import KMeans
 import sklearn.metrics as metrics
 from scipy import stats as stats
@@ -13,12 +13,7 @@ import copy
 from contextlib import contextmanager
 import os
 from utils import EvaluationMetric
-from scripts.processAssociationMatrix import *
 
-import math
-
-
-# poolAM = multiprocessing.Pool(5)
 
 @contextmanager
 def suppress_stdout():
@@ -137,21 +132,23 @@ class AssociationMatrix:
                     self.G_left = KMeans(n_clusters=self.k1, algorithm='full').fit_transform(self.association_matrix)
                     self.G_left_primary = True
             if self.G_right is None:
-                with suppress_stdout():  # TODO: full is lloyd nelle versioni successive
+                with suppress_stdout():  # full is lloyd
                     self.G_right = KMeans(n_clusters=self.k2, algorithm='full').fit_transform(
                         self.association_matrix.transpose())
                     self.G_right_primary = True
             self.S = np.linalg.multi_dot([self.G_left.transpose(), self.association_matrix, self.G_right])
-        # TODO: added svd initialization
         elif initialize_strategy == "svd":
             # full_matrices is false because we want an approximation so la.svd(...) will compute only
-            # leading eigenvalues TODO: è ok?
-            # TODO: sarebbe da calcolare il tempo di
+            # leading eigenvalues
             u, s, vh = la.svd(self.association_matrix, full_matrices=False)
-            # TODO
             k_svd = min(self.k1, len(s))
+            # print("lenSVd: "+ str(len(s)))
+            # print("K1: " + str(self.k1))
+            # if G_left was already initialized the actual shape must be taken in account
+            if self.G_left is not None:
+                k_svd = min(k_svd, self.G_left.shape[1])
             self.k1 = k_svd
-            self.k2 = k_svd
+            self.k2 = min(self.k2, vh.shape[0])
             if verbose:
                 print("Association matrix filename: " + self.safe_filename)
                 print("Used parameters: k1 = " + str(self.k1) + " and k2 = " + str(
@@ -159,39 +156,44 @@ class AssociationMatrix:
                 print("Non-zero elements of the association matrix = {}".format(
                     np.count_nonzero(self.association_matrix)))
             if self.G_left is None:
-                with suppress_stdout():
-                    # reduction of G_left
-                    self.G_left = u[:self.association_matrix.shape[0], :self.k1]
-                    # all negative values set to 0
-                    for i in range(len(self.G_left)):
-                        for j in range(self.k1):
-                            if math.isnan(self.G_left[i][j]):
-                                input("Nan in G_left " + self.filename + " >")
-                            if self.G_left[i][j] < 0:
-                                self.G_left[i][j] = 0
-                    self.G_left_primary = True  # TODO: a cosa serve questa variabile?
+                # reduction of G_left
+                self.G_left = u[:self.association_matrix.shape[0], :self.k1]
+                # all negative values set to 0
+                for i in range(len(self.G_left)):
+                    for j in range(len(self.G_left[0])):
+                        if self.G_left[i][j] < 0:
+                            self.G_left[i][j] = 0
+                    self.G_left_primary = True
 
             if self.G_right is None:
-                with suppress_stdout():
-                    # reduction of G_right. Need to transpose to stay consistent with other initialization methods
-                    self.G_right = vh[:self.k2, :self.association_matrix.shape[1]].transpose()
-                    # all negative values set to 0
-                    for i in range(len(self.G_right)):
-                        for j in range(self.k2):
-                            if math.isnan(self.G_right[i][j]):
-                                input("Nan in G_right " + self.filename + " >")
-                            if self.G_right[i][j] < 0:
-                                self.G_right[i][j] = 0
-                    self.G_right_primary = True
+                # reduction of G_right. Need to transpose to stay consistent with other initialization methods
+                self.G_right = vh[:self.k2, :self.association_matrix.shape[1]].transpose()
+                # all negative values set to 0
+                for i in range(len(self.G_right)):
+                    for j in range(len(self.G_right[0])):
+                        if self.G_right[i][j] < 0:
+                            self.G_right[i][j] = 0
+                self.G_right_primary = True
             # s became an array with all eigenvalues in it
             s = s[:self.k1]
             # Need to discard all negative eigenvalues
             for i in range(self.k1):
-                if math.isnan(s[i]):
-                    input("Nan in S " + self.filename + " >")
                 if s[i] < 0:
                     s[i] = 0
+            len_s = len(s)
             self.S = np.diag(s)  # S became a diagonal matrix
+            if self.k2 - len_s > 0:
+                zeros = np.zeros((len_s, self.k2 - len_s))  # Column to add
+                self.S = np.hstack([self.S, zeros])
+            elif self.k2 - len_s < 0:
+                diffK = len_s - self.k2
+                self.S = self.S[:, :-diffK]
+            if self.G_left.shape[1] - len_s > 0:
+                zeros = np.zeros((self.G_left.shape[1] - len(self.S[0]), len(self.S[0])))  # Row to add
+                self.S = np.vstack([self.S, zeros])
+
+            print(np.shape(self.G_left),np.shape(self.S),np.shape(self.G_right))
+            # print(self.S)
 
         for am in self.dep_own_left_other_left:
             if am.G_left is None:
@@ -205,7 +207,7 @@ class AssociationMatrix:
         for am in self.dep_own_right_other_right:
             if am.G_right is None:
                 am.G_right = self.G_right
-        if verbose:
+        if verbose or True:
             print(self.leftds, self.rightds, self.association_matrix.shape)
             print("Shape Factor Matrix left " + str(self.G_left.shape))
             print("Shape Factor Matrix right " + str(self.G_right.shape) + "\n")
@@ -244,7 +246,6 @@ class AssociationMatrix:
 
             R12_2 = list(self.original_matrix[self.M == 0])
             R12_found_2 = list(self.rebuilt_association_matrix[self.M == 0])
-            # TODO: R12_found_2 è tutti nan in svd generando un errore (errore vecchio)
             if metric == EvaluationMetric.AUROC:
                 fpr, tpr, _ = metrics.roc_curve(R12_2, R12_found_2)
                 return metrics.auc(fpr, tpr)
@@ -259,7 +260,7 @@ class AssociationMatrix:
 
     def get_error(self):
         self.rebuilt_association_matrix = np.linalg.multi_dot([self.G_left, self.S, self.G_right.transpose()])
-        # print(self.rebuilt_association_matrix) # TODO: rebuilt_association_matrix a  volte è nan
+        # print(self.rebuilt_association_matrix)
         return np.linalg.norm(self.association_matrix - self.rebuilt_association_matrix, ord='fro') ** 2
 
     def update_G_right(self):
@@ -274,7 +275,8 @@ class AssociationMatrix:
             num += np.linalg.multi_dot([am.association_matrix, am.G_right, am.S.transpose()])
             den += np.linalg.multi_dot(
                 [self.G_right, am.S, am.G_right.transpose(), am.G_right, am.S.transpose()])
-        div = np.divide(num, den + 0.000001)  #+ sys.float_info.min) # TODO: per questo si generava l'errore
+        div = np.divide(num, den + 0.000001)  # + sys.float_info.min)
+        #  print(np.isnan(div))
         return np.multiply(self.G_right, div)
 
     def update_G_left(self):
@@ -290,7 +292,8 @@ class AssociationMatrix:
             den += np.linalg.multi_dot(
                 [self.G_left, am.S.transpose(), am.G_left.transpose(), am.G_left, am.S])
         # print(den)
-        div = np.divide(num, den + 0.000001)  # TODO: secondo me il problema è qui dove si fa un 0/0
+        div = np.divide(num, den + 0.000001)
+        #print(np.isnan(div))
         # print(div)
         return np.multiply(self.G_left, div)
 
@@ -299,12 +302,13 @@ class AssociationMatrix:
         den = np.linalg.multi_dot(
             [self.G_left.transpose(), self.G_left, self.S, self.G_right.transpose(), self.G_right])
         div = np.divide(num, den + 0.000001)
+        #print(np.isnan(div))
         return np.multiply(self.S, div)
 
     def update(self):
         if self.G_right_primary:
-            self.G_right = self.update_G_right()  # update_G_right(self)  #
+            self.G_right = self.update_G_right()
         if self.G_left_primary:
-            self.G_left = self.update_G_left()  # update_G_left(self)  #
-        self.S = self.update_S()  # update_S(self)  #
+            self.G_left = self.update_G_left()
+        self.S = self.update_S()
 

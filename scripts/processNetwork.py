@@ -6,6 +6,20 @@ from utils.utils import *
 
 # args: (dirname_1, dirname_2, rng, metric, max_iter)
 def runNetworkMM(args, results, metricsArr, pos):
+    """
+        creates a Network with Maximum Metrix evaluation
+
+        Parameters
+        ----------
+        args : (dirname_1, dirname_2, rng, metric, max_iter)
+            args necessary to the Network to be created:
+        results
+            shared array containing the best epsilons
+        metricsArr
+            shared array containing the Metric samples every 10 iterations
+        pos : int
+            integer identifying the run
+    """
     max_i = args[4]
     met = args[3]
     V = []
@@ -35,6 +49,20 @@ def runNetworkMM(args, results, metricsArr, pos):
 
 # args: (dirname_1, dirname_2, rng, metric, max_iter)
 def runNetworkRE(args, results, metricsArr, pos):
+    """
+        creates a Network with Relative Error evaluation
+
+        Parameters
+        ----------
+        args : (dirname_1, dirname_2, rng, metric, max_iter)
+            args necessary to the Network to be created:
+        results
+            shared array containing the best epsilons
+        metricsArr
+            shared array containing the Metric samples every 10 iterations
+        pos : int
+            integer identifying the run
+    """
     epsilon = 0
     max_i = args[4]
     met = args[3]

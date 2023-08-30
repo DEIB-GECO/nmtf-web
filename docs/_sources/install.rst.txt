@@ -3,25 +3,25 @@ Installation
 
 Dowload repo
 =============
-You can downoal it from: https://github.com/DEIB-GECO/NMTF-link .
+You can downoal it from: https://github.com/DEIB-GECO/NMTF-web .
 
 Or you can download it using git command:
 
 .. code-block:: console
 	
-	git clone https://github.com/DEIB-GECO/NMTF-link
+	git clone https://github.com/DEIB-GECO/NMTF-web
 	
 Or wget:
 
 .. code-block:: console
 
-	wget --no-check-certificate --content-disposition https://github.com/DEIB-GECO/NMTF-link
+	wget --no-check-certificate --content-disposition https://github.com/DEIB-GECO/NMTF-web
 
 Or curl:
 
 .. code-block:: console
 
-	curl -LJO https://github.com/DEIB-GECO/NMTF-link
+	curl -LJO https://github.com/DEIB-GECO/NMTF-web
 
 Install requirements
 =====================
@@ -50,7 +50,7 @@ Or youc can use a docker container:
 
 .. code-block:: console
 
-	docker load < web_app_nmtf.tar
+	docker load < nmtf_web.tar
 
 Run app
 ==========
@@ -64,5 +64,5 @@ If you loaded the docker map the port 5000 and run a container using:
 
 .. code-block:: console
 
-	docker run -p 5000:5000 web_app_nmtf
+	docker run -p 5000:5000 nmtf_web
 	

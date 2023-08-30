@@ -1,0 +1,6 @@
+Anacleto  Mamma Mia!  0.5521479160810883
+Anna  In Time  0.5093657848418497
+Chiara  Ma  0.6041672387998268
+Chiara  The Lighthouse  0.60416162263411
+Francesco  Ma  0.5079585278884743
+Francesco  The Lighthouse  0.5079602577250371

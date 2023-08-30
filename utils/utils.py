@@ -36,7 +36,7 @@ class StopCriterion(Enum):
 default_threshold = 0.1
 threshold = default_threshold
 metric = 'aps'
-max_iter = 300  # TODO: da modificare
+MAX_ITER = 300
 stop_criterion = 'calculate'
 # number of iterations to find the stop criterion value
 N_ITERATIONS = 5

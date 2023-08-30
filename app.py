@@ -11,8 +11,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1204  # 8 MB max file size / error 413
 app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}  # 'max_message_size': 10240}  # websocket options
 app.config['MAX_NUM_FILES'] = 10  # Max number of files that can be elaborated
-app.config['RECAPTCHA_SITE_KEY'] = "6LcmdFgmAAAAAG7NkCZUq71j1Kh9rUENWa44R7Fm"  # Site key for g-recaptcha v3
-app.config['RECAPTCHA_SECRET_KEY'] = "6LcmdFgmAAAAAOTksc1WGWIGExkPWjVa0LfYd5qn"  # Secret key for g-recaptcha v3
+app.config['RECAPTCHA_SITE_KEY'] = ""  # Site key for g-recaptcha v3
+app.config['RECAPTCHA_SECRET_KEY'] = ""  # Secret key for g-recaptcha v3
 app.config['RECAPTCHA_VERIFY_URL'] = "https://www.google.com/recaptcha/api/siteverify"  # g-recaptcha verify url
 sock = Sock(app)  # websocket initialization
 
@@ -164,6 +164,7 @@ def create_set_file(req, files):
     leftNodes = req.getlist("nodes.left")
     rightNodes = req.getlist("nodes.right")
     main = req["main"]
+    print("main", main)
     fileString += "  graph.datasets:\n"
     for i in range(len(files)):
         fileString += "    - nodes.left: " + leftNodes[i] + "\n"
@@ -175,6 +176,7 @@ def create_set_file(req, files):
         else:
             fileString += "0"
         fileString += "\n"
+    print(fileString)
     unique = new_unique_name()
     create_dir(unique)
     try:
@@ -204,10 +206,12 @@ def loader():
         If the form is not consistent an error page 400 is returned. If test recaptcha failed error page 401 is
         returned.
     """
-    recaptcha_test = requests.post(url=f"{app.config['RECAPTCHA_VERIFY_URL']}" +
-                                       f"?secret={app.config['RECAPTCHA_SECRET_KEY']}" +
-                                       f"&response={request.form['g-recaptcha-response']}").json()
-    if recaptcha_test["success"]:
+    # Uncomment this part and configure the app.config['RECAPTCHA_SECRET_KEY'] and app.config['RECAPTCHA_SITE_KEY']
+    # to activate the recaptcha test
+    # recaptcha_test = requests.post(url=f"{app.config['RECAPTCHA_VERIFY_URL']}" +
+    #                                   f"?secret={app.config['RECAPTCHA_SECRET_KEY']}" +
+    #                                   f"&response={request.form['g-recaptcha-response']}").json()
+    if True:  # recaptcha_test["success"]:
         unique = ""
         set_file = request.files["sfile"]
         files = request.files.getlist("afiles")
@@ -232,7 +236,7 @@ def loader():
                 else:
                     filesNames = list(map(lambda f: f.filename, files))
                     unique = create_set_file(request.form, filesNames)
-                    if unique is not None:
+                    if unique is not None and check_files(files):
                         save_files(files, unique)
                         add_to_unique_not_used(unique)
                     else:

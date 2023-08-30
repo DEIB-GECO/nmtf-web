@@ -1,5 +1,3 @@
-# graph_topology.yaml
-
 Websocket connection opened!
 nmtf app lunched
 metric : APS

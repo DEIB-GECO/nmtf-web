@@ -8,7 +8,7 @@ import os
 from werkzeug.utils import secure_filename
 
 ROUTINE_S = 30  # 2 minutes
-FILE_LIFE_S = 60 * 1  # 20 minutes
+FILE_LIFE_S = 60 * 2  # 2 minutes
 UNIQUE_NOT_USED_LIFE = 30  # 1 minute
 ROUTINE_UNIQUE_NOT_USED = 30  # 30 seconds
 Uniques = set()  # HashMap containing unique dir names

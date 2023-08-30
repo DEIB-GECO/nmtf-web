@@ -11,7 +11,6 @@ import multiprocessing
 from scripts.processNetwork import runNetworkRE, runNetworkMM
 
 warnings.filterwarnings('ignore')
-
 if __name__ == '__main__':
     matplotlib.use('agg')
 
@@ -68,8 +67,11 @@ if __name__ == '__main__':
         try:
             max_iter_value = graph_topology["number.of.iterations"]
             max_iter = int(max_iter_value)
+            if max_iter > MAX_ITER:
+                raise ValueError()
         except ValueError:
-            print(f"Invalid number of iteration {max_iter_value}, set default value {max_iter}")
+            max_iter = MAX_ITER
+            print(f"Invalid number of iteration {max_iter_value}, set default value {MAX_ITER}")
 
         try:
             threshold = graph_topology["score.threshold"]
@@ -128,6 +130,12 @@ if __name__ == '__main__':
         best_epsilon_arr = []
         ss = np.random.SeedSequence()
         # Spawn off 10 child SeedSequences to pass to child processes.
+        # completamente indipendenti dato che usiamo numpy = 1.18 farò riferimento a
+        # https://albertcthomas.github.io/good-practices-random-number-generators/
+        # è necessitata SeedSequence spawing https://numpy.org/doc/1.18/reference/random/parallel.html
+        # essa implementa un algoritmo che garantisce un'alta probabilità che due seed genrati vicini sian
+        # molto diversi.
+        # SeedSequence avoids these problems by using successions of integer hashes with good avalanche properties
         child_seeds = ss.spawn(N_ITERATIONS + 1)
         streams = [np.random.default_rng(s) for s in child_seeds]
         processes = list()
@@ -144,19 +152,6 @@ if __name__ == '__main__':
 
         print("best_epsilon_arr: "+str(best_epsilon_arr))
 
-        # completamente indipendenti dato che usiamo numpy = 1.18 farò riferimento a
-        # https://albertcthomas.github.io/good-practices-random-number-generators/
-        # è necessitata SeedSequence spawing https://numpy.org/doc/1.18/reference/random/parallel.html
-        # essa implementa un algoritmo che garantisce un'alta probabilità che due seed genrati vicini sian
-        # molto diversi.
-        # SeedSequence avoids these problems by using successions of integer hashes with good avalanche properties
-        """
-            ss = SeedSequence(12345)
-            # Spawn off 10 child SeedSequences to pass to child processes.
-            child_seeds = ss.spawn(10)
-            streams = [default_rng(s) for s in child_seeds]
-            stream[x].random() # generate np.float64 random number between 0. and 1.
-        """
         complete_plot(metric)
 
         res_best_epsilon = statistics.median(best_epsilon_arr)

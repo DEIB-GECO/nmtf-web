@@ -3,32 +3,29 @@ Installation
 
 Dowload repo
 =============
-You can downoal it from: https://github.com/DEIB-GECO/NMTF-web .
+You can downoal it from: https://github.com/DEIB-GECO/nmtf-web .
 
 Or you can download it using git command:
 
 .. code-block:: console
 	
-	git clone https://github.com/DEIB-GECO/NMTF-web
+	git clone https://github.com/DEIB-GECO/nmtf-web
 	
 Or wget:
 
 .. code-block:: console
 
-	wget --no-check-certificate --content-disposition https://github.com/DEIB-GECO/NMTF-web
+	wget --no-check-certificate --content-disposition https://github.com/DEIB-GECO/nmtf-web
 
 Or curl:
 
 .. code-block:: console
 
-	curl -LJO https://github.com/DEIB-GECO/NMTF-web
+	curl -LJO https://github.com/DEIB-GECO/nmtf-web
 
 Install requirements
 =====================
-
-On your computer
------------------
-You can install web_app_nmtf directly on you device:
+You can install nmtf-web directly on you device:
 
 1. Be sure to have python 3.7 installed or you can create and eviorment with conda:
 
@@ -44,13 +41,23 @@ You can install web_app_nmtf directly on you device:
 
 	pip install -r requirements.txt
 
-In a docker container
-----------------------
-Or youc can use a docker container:
+
+In a Docker container
+=====================
+Or you can use a docker container:
+
+1. Pull the image from DockerHub:
 
 .. code-block:: console
 
-	docker load < nmtf_web.tar
+	docker pull giuseppebocci/nmtf-web:latest
+
+2. Create and start the container, mapping the port 5000 on the port 5000:
+
+.. code-block:: console
+
+	docker run -p 5000:5000 --name container_name giuseppebocci/nmtf-web
+	
 
 Run app
 ==========
@@ -58,11 +65,12 @@ If you installed requirements with pip use:
 
 .. code-block:: console
 
+	cd nmtf-web
 	python app.py
 
-If you loaded the docker map the port 5000 and run a container using:
+To start the Docker container after the first time:
 
 .. code-block:: console
 
-	docker run -p 5000:5000 nmtf_web
+	docker start -a container_name
 	
